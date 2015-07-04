@@ -56,4 +56,4 @@ PARA visualizá-lo no blog “humildão”
 ####Desenvolver esta solução utilizando:
 - [ ] ASP.NET MVC (C#);
 - [ ] MySQL ou SQL Server;
-- [ ] Git.
+- [x] Git.
