@@ -25,6 +25,6 @@ Status                   | Tarefa
 
 
 ####Desenvolver esta solução utilizando:
-- [ ] ASP.NET MVC (C#);
+- [X] ASP.NET MVC (C#);
 - [ ] MySQL ou SQL Server;
 - [x] Git.
