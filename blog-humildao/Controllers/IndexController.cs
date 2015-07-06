@@ -11,6 +11,9 @@ namespace blog_humildao.Controllers
         // GET: Index
         public ActionResult Index()
         {
+            List<Models.Post> posts = new List<Models.Post>();
+            ViewData["posts"] = posts;
+
             return View();
         }
     }
