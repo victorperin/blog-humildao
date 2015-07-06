@@ -1,6 +1,10 @@
 # blog-humildao
 Um exercício sugerido pelo pessoal da Princi Web, para treinar ASP.NET
 
+###Atenção
+:construction: Este ainda é um projeto em desenvolvimento, não está funcionando! :construction:<br/>
+Por favor, **não me ajude**, pois quero tentar fazer **sozinho**.
+
 ##O exercício
 ------------------------------------------------------------------------------------------
 
