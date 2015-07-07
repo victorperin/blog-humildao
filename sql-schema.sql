@@ -18,7 +18,7 @@ USE `blog-humildao`;
 -- Dumping structure for table blog-humildao.categorias
 CREATE TABLE IF NOT EXISTS `categorias` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) DEFAULT '0',
+  `nome` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
 CREATE TABLE IF NOT EXISTS `posts` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_usuario` int(10) unsigned NOT NULL,
+  `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `titulo` varchar(256) NOT NULL,
   `conteudo` text,
   PRIMARY KEY (`id`),
@@ -71,12 +72,12 @@ CREATE TABLE IF NOT EXISTS `posts_categorias` (
 -- Dumping structure for table blog-humildao.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `login` varchar(50) NOT NULL DEFAULT '0',
-  `hash_senha` char(32) NOT NULL DEFAULT '0' COMMENT 'hash md5 da senha (concatenada com o salt)',
-  `salt_senha` char(32) NOT NULL DEFAULT '0' COMMENT 'salt aleatório, para proteger a senha melhor (Saiba mais por aqui: http://blog.thiagobelem.net/encriptando-senhas-de-forma-segura/ )',
-  `nome_exibicao` varchar(50) NOT NULL DEFAULT '0',
-  `admin` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `email` varchar(254) NOT NULL DEFAULT '0',
+  `login` varchar(50) NOT NULL,
+  `hash_senha` char(32) NOT NULL COMMENT 'hash md5 da senha (concatenada com o salt)',
+  `salt_senha` char(32) NOT NULL COMMENT 'salt aleatório, para proteger a senha melhor (Saiba mais por aqui: http://blog.thiagobelem.net/encriptando-senhas-de-forma-segura/ )',
+  `nome_exibicao` varchar(50) DEFAULT NULL,
+  `admin` bit(1) NOT NULL,
+  `email` varchar(254) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
