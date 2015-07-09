@@ -5,6 +5,13 @@ Um exercício sugerido pelo pessoal da Princi Web, para treinar ASP.NET
 :construction: Este ainda é um projeto em desenvolvimento, não está funcionando! :construction:<br/>
 Por favor, **não me ajude**, pois quero tentar fazer **sozinho**.
 
+
+##Instalação
+1. Certifique-se de que você tem instalado o IIS ou o VisualStudio, para que o código rode;
+2. Além disso, também é necessário ter o MySQL instalado na máquina;
+3. Carregue o arquivo .sql que está na raiz do repositório para seu banco de dados;
+4. Configure o host, usuario e senha do seu servidor MySQL no arquivo Models/MySql.cs. (Futuramente será mais simples.)
+
 ##O exercício
 ------------------------------------------------------------------------------------------
 
