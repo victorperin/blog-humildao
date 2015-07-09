@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
   `id_post` int(10) unsigned NOT NULL,
   `id_usuario` int(10) unsigned NOT NULL,
   `conteudo` tinytext NOT NULL,
+  `status` enum('aprovado','aguardando','reprovado') NOT NULL DEFAULT 'aguardando',
   PRIMARY KEY (`id`),
   KEY `comentario_post` (`id_post`),
   KEY `comentario_usuario` (`id_usuario`),
@@ -76,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `hash_senha` char(32) NOT NULL COMMENT 'hash md5 da senha (concatenada com o salt)',
   `salt_senha` char(32) NOT NULL COMMENT 'salt aleatório, para proteger a senha melhor (Saiba mais por aqui: http://blog.thiagobelem.net/encriptando-senhas-de-forma-segura/ )',
   `nome_exibicao` varchar(50) DEFAULT NULL,
-  `admin` bit(1) NOT NULL,
+  `admin` enum('true','false') NOT NULL DEFAULT 'false',
   `email` varchar(254) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
