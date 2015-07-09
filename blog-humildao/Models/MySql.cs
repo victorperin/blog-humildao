@@ -6,10 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace blog_humildao.Models{
     public class MySQL{
-        private string connectionString = "Server=localhost;Database=blog-humildao;Uid=root;Pwd=;";
+        private string connectionString = ConfigurationManager.ConnectionStrings["mysql-connection"].ConnectionString;
         MySqlConnection connection ;
         public MySQL(){
             this.connection = new MySqlConnection(connectionString);
