@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Post";
+    var  post = (dynamic) ViewData["post"];
+}
+
+    <h1>@post.titulo</h1>
+    <p>
+        @{int numerosCategorias = 0; string categoriasPost = "";}
+        Por <b>@post.usuario</b> - <i>@String.Format("{0:d/M/yyyy HH:mm:ss}", post.data)</i>, em
+        @foreach (string categoria in @post.categorias)
+        {
+            numerosCategorias++;
+            if (numerosCategorias > 1) { categoriasPost += ", "; }
+            categoriasPost += "<a href='#'>" + categoria + "</a>";
+
+        }
+        @Html.Raw(categoriasPost)
+    </p>
+    @Html.Raw(post.conteudo)
+
