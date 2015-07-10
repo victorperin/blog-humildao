@@ -35,5 +35,22 @@ namespace blog_humildao.Models{
             return categoriasDoPost;
                         
         }
+        public static Post getPost(int id)
+        {
+            MySQL mysql = new MySQL();
+            string selectPost = "select posts.id,usuarios.nome_exibicao,posts.data,posts.titulo,posts.conteudo from posts left join usuarios on posts.id_usuario = usuarios.id where posts.id=" + id;
+            IList<IDictionary<string, string>> query = mysql.selectQuery(selectPost);
+            List<string> categoriasDoPost = getCategoriasPost(int.Parse(query[0]["id"]));
+            Post post = new Post
+            {
+                id = int.Parse(query[0]["id"]),
+                usuario = query[0]["nome_exibicao"],
+                data = DateTime.Parse(query[0]["data"]),
+                titulo = query[0]["titulo"],
+                conteudo = query[0]["conteudo"],
+                categorias = categoriasDoPost
+            };
+            return post;
+        }
     }
 }
