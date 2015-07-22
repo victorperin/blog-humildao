@@ -20,7 +20,7 @@ namespace blog_humildao.Models{
                 IList<IDictionary<string, string>> rows = new List<IDictionary<string, string>>();
                 connection.Open();
                 command.CommandText = query;
-                using (var reader = command.ExecuteReader())
+                using (var reader = command.ExecuteReader()) { 
                     while (reader.Read()){
                         IDictionary<string, string> elementos = new Dictionary<string, string>();
                         for (int i = 0; i < reader.FieldCount; i++){
@@ -31,8 +31,9 @@ namespace blog_humildao.Models{
                         rows.Add(elementos);
                         
                     }
-                connection.Close();
-                return rows;
+                    connection.Close();
+                    return rows;
+                }
             }
         }
     }
