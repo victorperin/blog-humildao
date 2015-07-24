@@ -109,6 +109,7 @@
     <Compile Include="Models\IndexModel.cs" />
     <Compile Include="Models\MySql.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\UsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
