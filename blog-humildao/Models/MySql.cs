@@ -36,5 +36,19 @@ namespace blog_humildao.Models{
                 }
             }
         }
+        public Boolean checarExistenciaUsuario(string usuario)
+        {
+            string usuarioEscaped = MySqlHelper.EscapeString(usuario);
+            IList<IDictionary<string, string>> selectUsuario = this.selectQuery("select login, email from usuarios where login = '"+usuarioEscaped+"'");
+            if (selectUsuario.Count == 0) return false;
+            else return true;
+        }
+        public Boolean checarExistenciaEmail(string email)
+        {
+            string emailEscaped = MySqlHelper.EscapeString(email);
+            IList<IDictionary<string, string>> selectUsuario = this.selectQuery("select login, email from usuarios where email = '" + emailEscaped + "'");
+            if (selectUsuario.Count == 0) return false;
+            else return true;
+        }
     }
 }
