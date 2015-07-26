@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Registre-se no Humildão</h2>
+<style>
+    .input-group{
+        margin:10px 0;
+    }
+    .input-group .input-group-addon{
+        width:100px;
+    }
+</style>
+@using (Html.BeginForm())
+{
+<fieldset>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon2">Usuário</span>
+        <input type="text" class="form-control" placeholder="Usuário" aria-describedby="sizing-addon2" name="usuario" required>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon2">Senha</span>
+        <input type="text" class="form-control" placeholder="Senha" aria-describedby="sizing-addon2" name="senha" required>
+        <input type="text" class="form-control" placeholder="Confirmar Senha" aria-describedby="sizing-addon2" name="confirmacao_senha" required>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon2">Email</span>
+        <input type="text" class="form-control" placeholder="Email" aria-describedby="sizing-addon2" name="email" required>
+        <input type="text" class="form-control" placeholder="Confirmar Email" aria-describedby="sizing-addon2" name="confirmacao_email" required>
+    </div>
+</fieldset>
+    
+}
+@{
+    blog_humildao.Models.MySQL mysql = new blog_humildao.Models.MySQL();
+    if (mysql.checarExistenciaUsuario("teste") == true)
+    {<span>Verdadeiro!!!</span>}
+    if (mysql.checarExistenciaEmail("me@victorperin.com") == true)
+    {<span>Verdadeiro!!!</span>}
+}
