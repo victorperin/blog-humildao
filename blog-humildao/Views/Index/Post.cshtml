@@ -18,4 +18,15 @@
         @Html.Raw(categoriasPost)
     </p>
     @Html.Raw(post.conteudo)
+    <hr />
+    <h3>Comentários <span class="label label-default">@post.comentarios.Count</span></h3>
+    @foreach (dynamic comentario in @post.comentarios)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading"><b>@comentario.nomeExibicaoUsuario</b></div>
+            <div class="panel-body">
+                @comentario.conteudo
+            </div>
+        </div>
+    }
 
