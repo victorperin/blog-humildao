@@ -52,5 +52,24 @@ namespace blog_humildao.Models{
             };
             return post;
         }
+        public static List<Comentario> getAllCommentariosAprovados(int idPost)
+        {
+            List<Comentario> comentarios = new List<Comentario>();
+            MySQL mysql = new MySQL();
+            string selectComments = "select comentarios.id, usuarios.nome_exibicao, comentarios.conteudo, comentarios.status from comentarios";
+            selectComments += " left join usuarios on comentarios.id_usuario = usuarios.id";
+            selectComments += " where comentarios.status='aprovado' AND comentarios.id_post = " + idPost;
+            IList<IDictionary<string, string>> query = mysql.selectQuery(selectComments);
+            foreach (Dictionary<string, string> row in query)
+            {
+                comentarios.Add(new Comentario{
+                    id=int.Parse(row["id"]),
+                    nomeExibicaoUsuario=row["nome_exibicao"],
+                    conteudo=row["conteudo"],
+                    status=row["status"]
+                });
+            }
+            return comentarios;
+        }
     }
 }
