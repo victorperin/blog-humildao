@@ -13,5 +13,6 @@ namespace blog_humildao.Models
         public string titulo;
         public DateTime data;
         public string conteudo;
+        public List<Comentario> comentarios;
     }
 }
