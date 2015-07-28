@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -72,6 +73,45 @@ namespace blog_humildao.Models{
                 });
             }
             return comentarios;
+        }
+        public static List<string> getCategorias()
+        {
+            MySQL mysql = new MySQL();
+            List<string> categorias = new List<string>();
+            IList<IDictionary<string, string>> selectCategorias = mysql.selectQuery("select nome from categorias");
+            foreach (Dictionary<string, string> categoria in selectCategorias)
+            {
+                categorias.Add(categoria["nome"]);
+            }
+
+            return categorias;
+        }
+        public static IList<Post> getPostsCategoria(string categoria)
+        {
+            IList<Post> posts = new List<Post>();
+            string categoriaEscaped = categoria;
+            string selectPosts =  " SELECT posts.id,usuarios.nome_exibicao,posts.data,posts.titulo,posts.conteudo";
+            selectPosts +=        " FROM posts";
+            selectPosts +=        " LEFT JOIN usuarios ON posts.id_usuario = usuarios.id";
+            selectPosts +=        " LEFT JOIN posts_categorias ON posts.id = posts_categorias.id_post";
+            selectPosts +=        " LEFT JOIN categorias ON posts_categorias.id_categoria = categorias.id";
+            selectPosts +=        " WHERE categorias.nome = '"+categoriaEscaped+"'";
+            IList<IDictionary<string, string>> query = mysql.selectQuery(selectPosts);
+            for (int x = 0; x < query.Count; x++)
+            {
+                List<string> categoriasDoPost = getCategoriasPost(int.Parse(query[x]["id"]));
+                posts.Add(new Post
+                {
+                    id = int.Parse(query[x]["id"]),
+                    usuario = query[x]["nome_exibicao"],
+                    data = DateTime.Parse(query[x]["data"]),
+                    titulo = query[x]["titulo"],
+                    conteudo = query[x]["conteudo"],
+                    categorias = categoriasDoPost
+                });
+
+            }
+            return posts;
         }
     }
 }

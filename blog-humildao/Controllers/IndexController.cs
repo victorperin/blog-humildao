@@ -19,5 +19,10 @@ namespace blog_humildao.Controllers
             ViewData["post"] = Models.IndexModel.getPost(id);
             return View();
         }
+        public ActionResult Categoria(string nome)
+        {
+            ViewData["posts"] = Models.IndexModel.getPostsCategoria(nome);
+            return View("Index");
+        }
     }
 }

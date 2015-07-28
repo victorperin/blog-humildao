@@ -26,7 +26,7 @@ Status                   | Tarefa
 <ul><li>- [ ] </li></ul> | **COMO** desenvolvedor<br/>**QUERO** acessar minha área restrita<br/>**PARA** incluir os meus posts
 <ul><li>- [ ] </li></ul> | **COMO** desenvolvedor<br/>**QUERO** aprovar ou desaprovar os comentários dos meus posts<br/>**PARA** evitar comentários desagradáveis (spam, xingamento, etc.)
 <ul><li>- [ ] </li></ul> | **COMO** desenvolvedor<br/>**QUERO** inserir categorias nos meus posts<br/>**PARA** deixá-los mais organizados para quem irá visualizá-los
-<ul><li>- [ ] </li></ul> | **COMO** visitante<br/>**QUERO** visualizar os posts por categoria<br/>**PARA** filtrar os posts com os assuntos do meu interesse
+<ul><li>- [x] </li></ul> | **COMO** visitante<br/>**QUERO** visualizar os posts por categoria<br/>**PARA** filtrar os posts com os assuntos do meu interesse
 <ul><li>- [ ] </li></ul> | **COMO** visitante<br/>**QUERO** comentar em um determinado post<br/>**PARA** expressar a minha opinião
 <ul><li>- [ ] </li></ul> | **COMO** visitante<br/>**QUERO** ser avisado por e-mail quando um comentário meu for aprovado<br/>**PARA** visualizá-lo no blog “humildão”
 
